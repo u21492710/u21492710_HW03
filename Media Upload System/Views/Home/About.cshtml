@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+@*Navbar was here*@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", style = "margin-left: 10px" })
+    <button style="margin-right: 10px" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li>@Html.ActionLink("Files", "Index", "FileDownload", new { area = "" }, new { @class = "nav-link", style = "margin-left: 10px" })</li>
+            <li>@Html.ActionLink("Images", "Index", "ImageDownload", new { area = "" }, new { @class = "nav-link", style = "margin-left: 10px" })</li>
+            <li>@Html.ActionLink("Videos", "Index", "VideoDownload", new { area = "" }, new { @class = "nav-link", style = "margin-left: 10px" })</li>
+            <li>@Html.ActionLink("About Me", "About", "Home", new { area = "" }, new { @class = "nav-link", style = "margin-left: 10px" })</li>
+        </ul>
+    </div>
+</nav>
+
+<h1 style=" margin-bottom: 15px;font-weight:normal">About Me</h1>
+<h4 style=" margin-bottom: 15px; font-weight:normal"> A little something about the developer </h4>
+<div style="background-color:aliceblue;" class="container">
+    <div class="row">
+        <div class="col-sm-12 col-lg-6 col-xl-6 col-md-12">
+            <h5 style=" margin-top: 10px; font-weight:normal"> Bio</h5>
+            <p>
+                I love developing webpages and a mulpitude of other programs including games. I love using microsoft visual studios as it provides all thet tools needed for any developer to fast track thier development journey.
+                I am create at writing neat and comprehensive code and Microsoft Visual Studio just makes my job even easier. I also develop games using the unity game engine which also uses microdoft visual studios and  hence I had a smooth transition when shifting over to MVC projects.
+                I never even knew that it provided help for that. I love watching anime as well during my free and I'm a regular visitor at Dr Google's office.
+                I am also very cheerful and love making jokes, I even showcase some of those jokes in my work. I put a little touch of my self in all my projects which adds to the incredibly uniqueness of my projects. You'll definitely not fine a replica anywhere guaranteed. I can get pretty sus at times.'
+            </p>
+        </div>
+        <div class="col-sm-12 col-lg-6 col-xl-6 col-md-12">
+            <h4 style=" margin-top: 10px; font-weight:normal"> SusTin</h4><br />
+
+            <div class="card" style="width: 75%;">
+                <img class="card-img-top" src="~/Media/SusPic.jpg" alt="Card image cap">
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

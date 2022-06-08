@@ -1,0 +1,67 @@
+﻿@using Media_Upload_System.Models
+@model List<FileModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+@*Fancy Box Stuff*@
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<link rel="stylesheet" href="style.css">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", style = "margin-left: 10px" })
+    <button style="margin-right: 10px" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li>@Html.ActionLink("Files", "Index", "FileDownload", new { area = "" }, new { @class = "nav-link", style = "margin-left: 10px" })</li>
+            <li>@Html.ActionLink("Images", "Index", "ImageDownload", new { area = "" }, new { @class = "nav-link", style = "margin-left: 10px" })</li>
+            <li>@Html.ActionLink("Videos", "Index", "VideoDownload", new { area = "" }, new { @class = "nav-link", style = "margin-left: 10px" })</li>
+            <li>@Html.ActionLink("About Me", "About", "Home", new { area = "" }, new { @class = "nav-link", style = "margin-left: 10px" })</li>
+        </ul>
+    </div>
+</nav>
+<h1 style=" margin-bottom: 15px;font-weight:normal">Videos of any file type</h1>
+<h4 style=" margin-bottom: 15px; font-weight:normal"> --------"Media/Videos/" folder </h4>
+<div style="background-color:aliceblue" class="container">
+    <div class="row">
+
+        @foreach (FileModel file in Model)
+        {
+            <div class="col-sm-12 col-lg-4 col-xl-3 col-md-6">
+                <div class="card" style="width: 18rem; height:400px; margin-bottom:10px;margin-top:10px">
+
+                    <a data-fancybox="gallery"
+                       href="~/Media/Videos/@file.FileName">
+                        <video style="width: 18rem; height:200px" class="card-img-top" autoplay="true"  controls ><source src="~/Media/Videos/@file.FileName" type="video/mp4" /></video>
+
+                    </a>
+
+                    <div class="card-body">
+                        <h5 class="card-title"> @file.FileName</h5>
+
+                        <button style=" background-color:green; margin-right: 20px; color: white; position:relative; top:75px; ">
+                            @Html.ActionLink("Download", "DownloadFile",
+                                new { fileName = file.FileName, filePath1 = "Videos"})
+                        </button>
+
+                        <button style=" background-color:red; color: white;position:relative; top:75px;">
+                            @Html.ActionLink("DELETE", "DeleteFile",
+                            new { fileName = file.FileName, filePath2 = "Videos"},
+                            new { onclick = "return confirm('Are you sure you wish to delete this?');" })
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+        }
+
+
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+

@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    ViewBag.choice = "";
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", style = "margin-left: 10px" })
+    <button style="margin-right: 10px" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li>@Html.ActionLink("Files", "Index", "FileDownload", new { area = "" }, new { @class = "nav-link", style = "margin-left: 10px" })</li>
+            <li>@Html.ActionLink("Images", "Index", "ImageDownload", new { area = "" }, new { @class = "nav-link", style = "margin-left: 10px" })</li>
+            <li>@Html.ActionLink("Videos", "Index", "VideoDownload", new { area = "" }, new { @class = "nav-link", style = "margin-left: 10px" })</li>
+            <li>@Html.ActionLink("About Me", "About", "Home", new { area = "" }, new { @class = "nav-link", style = "margin-left: 10px" })</li>
+        </ul>
+    </div>
+</nav>
+<h1 style=" margin-bottom: 15px;font-weight:normal">Media Uploads</h1>
+<h4 style=" margin-bottom: 15px; font-weight:normal"> Upload Files Here </h4>
+<div style="background-color:aliceblue;" class="container">
+    <div class="row">
+        <div class="col-sm-12 col-lg-6 col-xl-6 col-md-12">
+            <h5 style=" margin-top: 10px; font-weight:normal"> Description</h5>
+            <p>
+                This is a media upload system.It is a system in which you will be able to upload all your media files on the web.
+                The files will be saved to a folder on the we and will always be available for you to review thm. There are 2 types of files that may be uploaded and previewed.
+                These are imgages and videos
+
+                Once the files have been uploaded, you can click on their respective links in order to preview them.
+                You may also be redirected to a table in which you can edit which files you will choose to be working with and can delete or add files on the fly.
+
+                You will be provided with an option to download the files you already uploaded, shall the need arise.
+                Enjoy using the file system Uploader aka the Media Uploader.
+            </p>
+        </div>
+        <div class="col-sm-12 col-lg-6 col-xl-6 col-md-12">
+            <h4 style=" margin-top: 10px; font-weight:normal"> Option Selection</h4><br />
+
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div>
+                    <label style="margin-right: 5px">Document  </label><input type="radio" name="Type" value="Documents" /><br />
+                    <label style="margin-right: 5px">Image  </label><input type="radio" name="Type" value="Images" /><br />
+                    <label style="margin-right: 5px">Video  </label><input type="radio" name="Type" value="Videos" /><br /><br />
+
+                </div>
+
+                @Html.TextBox("file", "", new { type = "file" })
+                <input style="margin-top: 5px" type="submit" value="submit" />
+
+            }
+
+        </div>
+
+
+    </div>
+</div>
