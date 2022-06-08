@@ -25,7 +25,7 @@
 </nav>
 <h1 style=" margin-bottom: 15px;font-weight:normal">Videos of any file type</h1>
 <h4 style=" margin-bottom: 15px; font-weight:normal"> --------"Media/Videos/" folder </h4>
-<div style="background-color:aliceblue" class="container">
+<div style="background-color: aliceblue; overflow-y: auto; height: 600px; " class="container">
     <div class="row">
 
         @foreach (FileModel file in Model)
@@ -35,7 +35,7 @@
 
                     <a data-fancybox="gallery"
                        href="~/Media/Videos/@file.FileName">
-                        <video style="width: 18rem; height:200px" class="card-img-top" autoplay="true"  controls ><source src="~/Media/Videos/@file.FileName" type="video/mp4" /></video>
+                        <video style="width: 18rem; height:200px" class="card-img-top"   controls ><source src="~/Media/Videos/@file.FileName" type="video/mp4" /></video>
 
                     </a>
 
